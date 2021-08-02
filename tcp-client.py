@@ -14,3 +14,5 @@ response = client.recv(4096)
 print(response.decode())
 client.close()
 print("End of program did you receive anything?")
+
+# if all is right a message that this document has moved is displayed.
