@@ -5,7 +5,7 @@ import os
 
 
 def main():
-    HOST = raw_input("HOST address: ")
+    HOST = input("HOST address: ")
     # create raw socket, bin to public interface
     if os.name == 'nt':
         socket_protocol = socket.IPPROTO_IP
