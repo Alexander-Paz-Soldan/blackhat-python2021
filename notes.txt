@@ -1,0 +1,61 @@
+Web Applications
+
+reconnaissance and brute-force tools 
+
+1. WEB LIBRARIES FOR PYTHON
+urllib2 
+
+import urllib2 
+url = 'https://www.nostarch.com'
+response = urllib2.urlopen(url) # this is a GET request
+print(response.read())
+response.close()
+
+-- the Request class
+import urllib2
+url = "https://www.nostarch.com"
+headers = {'User-Agent':"Googlebot"}
+request = urllib2.Request(url,headers=headers)
+response = urllib2.urlopen(request)
+print(response.read())
+response.close()
+
+-- newer urllib for Python 3
+import urllib.parse
+import urllib.request
+
+url = 'http://doodelyboo.com'
+with urllib.request.urlopen(url) as response:
+    content = response.read()
+print(content)
+
+-- create a POST
+info = {'user':'tim','passwd':'31337'}
+data = urllib.parse.urlencode(info).encode() 
+req = urllib.request.Request(url, data)
+with urllib.request.urlopen(req) as response:
+    content = response.read()
+print(content)
+
+-- the Python requests library pip install requests
+-- automatic handling of cookies
+import requests
+url = 'http://boodelyboo.com'
+response = requests.get(url)
+data = {'user':'tim','passwd':'31337'}
+response = requests.post(url,data=data)
+print(response.text) # response.text = string and the response.content = bytestring
+
+-- the lxml and Beautiful soup packages
+-- pip install lxml pip install beautifulsoup4
+from io import BytesIO
+from lxml import etree
+import requests
+url = 'https://nostarch.com'
+r = requests.get(url)
+content = r.content
+parser = etree.HTMLParser()
+content = etree.parse(BytesIO(content), parser=parser)
+for link in content.findall('//a'):
+    print(f"{link.get('href')} -> {link.text}")
+

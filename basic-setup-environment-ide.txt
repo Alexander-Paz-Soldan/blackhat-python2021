@@ -1,0 +1,16 @@
+
+Prerequisites
+
+- Python 3
+- Virtual Environments
+
+1. Virtual Environments
+
+Each virtual environment has its own Python binary and packages
+in a separated directory.
+
+Creation of the virtual environment
+- python3 -m venv /path/to/new/virtual/environment
+
+On Windows
+to activate it: <venv>\Scripts\Activate.ps1
