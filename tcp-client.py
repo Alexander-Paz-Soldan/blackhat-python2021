@@ -1,8 +1,19 @@
 import socket
 
+# hard-coded defaults
 target_host = "www.google.com"
 target_port = 80
-
+#
+print("Provide target host (for example www.google.com)")
+target_host = input()
+print("provide the port (for example port 80)")
+try:
+    target_in = input()
+    target_port = int(target_in)
+except:
+    print("not an integer defaulting to port 80")
+    target_port = 80
+print("host:{target_host} port:{target_port}",(target_host, target_port))
 # create a socket object
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # connect the client
