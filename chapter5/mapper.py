@@ -60,7 +60,7 @@ def run():
 
 
 if __name__=='__main__':
-    with chdir("D:\\suntz\\Documents\\wordpress-5.8-nl_NL"):
+    with chdir("YOUR_LOCAL_WORDPRESS_FOLDER"):
         gather_paths()
     input('Press return to continue.')
     run()
@@ -68,5 +68,3 @@ if __name__=='__main__':
         while not answers.empty():
             f.write(f'{answers.get()}\n')
     print('done')
-
-    
