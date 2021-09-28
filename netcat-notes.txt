@@ -1,0 +1,9 @@
+
+NETCAT-like program
+
+the argparse module is used for arguments
+several options are given:
+
+1. upload a file
+2. execute a command
+3. start command shell
