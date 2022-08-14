@@ -1,0 +1,54 @@
+Web Applications
+
+- knowing a web framework (open source)
+  creating a mapping util to chart all the folders and files
+- knowing the url and no more
+  brute-force mapping using a wordlist
+- only base URL known and the login page, brute force login
+
+Python libraries useful for accessing web services
+
+urllib2 library written for Python 2.x
+# example:
+import urllib2
+url = "https://www.nostarch.com"
+response = urllib2.urlopen(url) # GET
+print(response.read())
+response.close()
+
+For interaction we need to do more:
+creating POST requests, defining headers, handle cookies
+
+urllib2 has a Request class
+
+# example
+import urllib2
+url = "https://www.nostarch.com"
+headers = {'User-Agent': "Googlebot"}
+request = urllib2.Request(url, headers=headers)
+response = urllib2.urlopen(request)
+print(response.read())
+response.close()
+
+--- that was an example in Python2
+
+for Python3 we have newer libraries
+
+# example
+import urllib.parse
+import urllib.request
+url = "http://www.google.com"
+with urllib.request.urlopen(url) as response: # GET
+    content = response.read()
+    print(content)
+
+-- to create a POST request
+info = {'user': 'tim', 'passwd': '31337'}
+         key  : value pairs
+data = urllib.parse.urlencode(info).encode() # data is now byte
+req = urllib.request.Request(url, data)
+with urllib.request.urlopen(req) as response: # POST
+    content = response.read()
+    print(content)
+
+The Requests library
